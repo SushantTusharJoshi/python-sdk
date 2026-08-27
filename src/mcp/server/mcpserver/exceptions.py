@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+from collections.abc import Sequence
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
@@ -81,10 +82,10 @@ class ToolError(MCPServerError):
         )
     """
 
-    content: list[ContentBlock] | None
+    content: Sequence[ContentBlock] | None
     """Optional rich content blocks for the error result."""
 
-    def __init__(self, message: str = "", *, content: list[ContentBlock] | None = None) -> None:
+    def __init__(self, message: str = "", *, content: Sequence[ContentBlock] | None = None) -> None:
         super().__init__(message)
         self.content = content
 
